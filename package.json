@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "homepage": "https://jonfranco224.github.io/JustWrite",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
@@ -19,6 +20,7 @@
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.7",
     "file-saver": "^1.3.3",
+    "gh-pages": "^1.0.0",
     "jspdf": "^1.3.5",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
