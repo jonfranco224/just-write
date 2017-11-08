@@ -24,7 +24,7 @@ class Main extends React.Component {
   }
 
   componentDidMount () {
-    localStorage.clear() // only for start up emulation
+    // localStorage.clear() // only for start up emulation
     if (!localStorage[0] || (localStorage[0] === '[]')) {
       localStorage[0] = JSON.stringify([])
       this.add()
@@ -120,12 +120,16 @@ class Main extends React.Component {
   }
 
   enableFullScreen () {
-    if (document.documentElement.requestFullscreen) {
-      document.documentElement.requestFullscreen()
-    } else if (document.documentElement.webkitRequestFullscreen) {
-      document.documentElement.webkitRequestFullscreen()
-    } else if (document.documentElement.mozRequestFullscreen) {
-      document.documentElement.mozRequestFullscreen()
+    let docElm = document.documentElement
+    if (docElm.requestFullscreen) {
+      docElm.requestFullscreen()
+    } else if (docElm.msRequestFullscreen) {
+      docElm = document.body //overwrite the element (for IE)
+      docElm.msRequestFullscreen()
+    } else if (docElm.mozRequestFullScreen) {
+      docElm.mozRequestFullScreen()
+    } else if (docElm.webkitRequestFullScreen) {
+      docElm.webkitRequestFullScreen()
     }
   }
 

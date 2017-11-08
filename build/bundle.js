@@ -1125,6 +1125,8 @@ var Main = function (_React$Component) {
         document.documentElement.requestFullscreen();
       } else if (document.documentElement.webkitRequestFullscreen) {
         document.documentElement.webkitRequestFullscreen();
+      } else if (document.documentElement.mozRequestFullscreen) {
+        document.documentElement.mozRequestFullscreen();
       }
     }
   }, {
@@ -1171,7 +1173,6 @@ var Main = function (_React$Component) {
       doc.setFontSize(14);
       doc.text(textPrepped, 20, 20);
       doc.save('test.pdf');
-      console.log('testing');
     }
   }, {
     key: 'render',
