@@ -1,0 +1,262 @@
+html, body {
+  margin: 0;
+  height: 100%;
+  box-sizing: border-box;
+  outline: none;
+  background-color: rgb(245, 246, 247);
+}
+
+i {
+  pointer-events: none;
+}
+
+#app {
+  height: 100%;
+  min-height: 100%;
+}
+
+.main-app {
+  display: flex;
+  min-height: 100%;
+}
+
+#menu {
+  width: 250px;
+}
+
+.menu-wrapper {
+  display: flex;
+  position: fixed;
+  height: 100%;
+}
+
+.projects-menu {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  z-index: 1;
+  width: 250px;
+  background: #6CA3B2;
+  margin-left: -250px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  box-shadow: 0 0 1px rgba(0,0,0,0.4);
+}
+
+.open {
+  margin-left: 0px;
+}
+
+.toggle {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: #333;
+  height: 50px;
+  width: 50px;
+  font-size: 20px;
+  margin-top: 30px;
+  margin-left: 10px;
+  outline: none;
+}
+
+.toggle.darkModeActive {
+  color: white;
+}
+
+.toggle:hover {
+  transition: transform .1s;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.projects-header {
+  margin: 0;
+  padding: 1.5em 1em 1.5em 1em;
+  color: white;
+  font-weight: 300;
+  font-size: 1em;
+  box-shadow: inset 0 -1px white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.projects-header h1 {
+  font-family: 'Rock Salt', cursive;
+  font-size: 1.3em;
+  font-weight: 400;
+  margin: 5px 0px 5px 10px;
+}
+
+.menu-options button{
+  outline: none;
+  padding: 8px;
+  font-size: .7em;
+  margin: 8px 0px 8px 8px;
+  background: white;
+  border: none;
+  border-radius: 2px;
+  transition: background 0.2s
+}
+
+.menu-options button:hover {
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+}
+
+.project-item {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  outline: none;
+  user-select: none;
+  box-shadow: inset 0 -1px white;
+  color: #f3efe0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 12px;
+  font-weight: 200;
+  -webkit-transition: background 0.1s, box-shadow 0.1s;
+  transition: background 0.1s, box-shadow 0.1s;
+}
+
+.project-item div {
+  padding: 1em 1em 1em 2.5em;
+  width: 90%;
+}
+
+.project-item:hover {
+  background-color: #616161;
+  color: white;
+}
+
+.project-item:hover i{
+  color: white;
+}
+
+.active{
+  background-color: #EBECED;
+  color: #333;
+}
+
+.active i {
+  color: #333;
+}
+
+.project-item button {
+  background: transparent;
+  outline: none;
+  border: none;
+  padding: 10px 15px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #f3efe0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 12px;
+  font-weight: 200;
+  cursor: pointer;
+}
+
+.project-item button:hover {
+  background: white;
+  cursor: pointer;
+}
+
+.project-item button:hover i{
+  color: red;
+}
+
+.addProject {
+  box-sizing: border-box;
+  outline: none;
+  margin: 15px ;
+  width: 220px;
+  margin-top: 15px;
+  background: white;
+  border-radius: 2px;
+  border: 1px solid white;
+  padding: 6px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333;
+  letter-spacing: 1px;
+  font-size: 12px;
+  font-weight: 200;
+  cursor: pointer;
+}
+
+footer {
+  width: 250px;
+  position: fixed;
+  bottom: 0;
+  font-size: .7em;
+  color: white;
+  padding-top: 15px;
+  padding-bottom: 30px;
+  border-top: 1px solid white;
+  background-color: #6CA3B2;
+}
+
+footer p {
+  font-size: 1.05em;
+  box-sizing: border-box;
+  margin:0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+footer a {
+  color: white;
+}
+
+.text-editor {
+  margin: 0 auto;
+  width: 750px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 2px;
+  border-left: 1px solid rgb(204, 204, 204);
+  border-right: 1px solid rgb(204, 204, 204);
+}
+
+.text-editor{
+  padding-top: 50px;
+  outline: none;
+  white-space: pre-wrap;
+  box-sizing: border-box;
+  cursor: text;
+}
+
+.text-editor h1, p {
+  user-select: auto;
+  padding: 10px 80px 10px 80px;
+}
+
+.text-editor h1 {
+  outline: none;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  padding-bottom: 30px;
+}
+
+.text-editor p {
+  height: 80%;
+  outline: none;
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  line-height: 23px;
+}
+
+.main-app.darkModeActive, 
+.text-editor.darkModeActive,
+.text-editor.darkModeActive h1 {
+  background-color: #333;
+  color: white;
+  /*transition: background-color 1s, color 1s;*/
+}
+
+.text-editor.darkModeActive h1 {
+  border-bottom: 1px solid white;
+}
+
+
