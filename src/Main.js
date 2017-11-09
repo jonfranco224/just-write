@@ -33,9 +33,15 @@ class Main extends React.Component {
       const projects = localArray.map((elem) => {
         return JSON.parse(elem).title
       })
-      this.setState({ projects: projects })
+      this.setState({ projects: projects, activeProject: ['1'] })
       this.load(0)
     }
+
+    window.addEventListener('beforeunload', () => { this.saveToLocalStorage() })
+    /*setInterval(() => { 
+      this.saveToLocalStorage() 
+      console.log('saved')
+    }, 500)*/
   }
 
   add () {
