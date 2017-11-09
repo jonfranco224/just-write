@@ -38,10 +38,6 @@ class Main extends React.Component {
     }
 
     window.addEventListener('beforeunload', () => { this.saveToLocalStorage() })
-    /*setInterval(() => { 
-      this.saveToLocalStorage() 
-      console.log('saved')
-    }, 500)*/
   }
 
   add () {

@@ -1013,6 +1013,8 @@ var Main = function (_React$Component) {
   _createClass(Main, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
+      var _this2 = this;
+
       // localStorage.clear() // only for start up emulation
       if (!localStorage[0] || localStorage[0] === '[]') {
         localStorage[0] = JSON.stringify([]);
@@ -1022,9 +1024,17 @@ var Main = function (_React$Component) {
         var projects = localArray.map(function (elem) {
           return JSON.parse(elem).title;
         });
-        this.setState({ projects: projects });
+        this.setState({ projects: projects, activeProject: ['1'] });
         this.load(0);
       }
+
+      window.addEventListener('beforeunload', function () {
+        _this2.saveToLocalStorage();
+      });
+      /*setInterval(() => { 
+        this.saveToLocalStorage() 
+        console.log('saved')
+      }, 500)*/
     }
   }, {
     key: 'add',
@@ -1181,7 +1191,7 @@ var Main = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       return _react2.default.createElement(
         'div',
@@ -1233,14 +1243,14 @@ var Main = function (_React$Component) {
               this.state.projects.map(function (project, id) {
                 return _react2.default.createElement(
                   'div',
-                  { key: 'project_' + id, id: id, className: 'project-item' + (_this2.state.activeProject[id] ? ' active' : '') },
+                  { key: 'project_' + id, id: id, className: 'project-item' + (_this3.state.activeProject[id] ? ' active' : '') },
                   _react2.default.createElement(
                     'div',
                     {
                       key: 'project_title_' + id,
                       onClick: function onClick(e) {
-                        _this2.saveToLocalStorage();
-                        _this2.load(e.target.parentNode.id);
+                        _this3.saveToLocalStorage();
+                        _this3.load(e.target.parentNode.id);
                       }
                     },
                     project
@@ -1250,7 +1260,7 @@ var Main = function (_React$Component) {
                     {
                       key: 'delete_key_' + id,
                       onClick: function onClick(e) {
-                        return _this2.delete(e.target.parentNode.id);
+                        return _this3.delete(e.target.parentNode.id);
                       }
                     },
                     _react2.default.createElement('i', { className: 'fa fa-trash' })
@@ -1294,7 +1304,7 @@ var Main = function (_React$Component) {
             id: 'title',
             contentEditable: 'true',
             onKeyUp: function onKeyUp(e) {
-              _this2.textKeyListener(e.target.innerText, e.target.id);
+              _this3.textKeyListener(e.target.innerText, e.target.id);
             }
           }),
           _react2.default.createElement('p', {
@@ -1307,7 +1317,7 @@ var Main = function (_React$Component) {
               }
             },
             onKeyUp: function onKeyUp(e) {
-              _this2.textKeyListener(e.target.innerHTML, e.target.innerText, e.target.id, e.key);
+              _this3.textKeyListener(e.target.innerHTML, e.target.innerText, e.target.id, e.key);
               e.preventDefault();
             }
           })
