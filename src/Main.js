@@ -15,12 +15,9 @@ class Main extends React.Component {
       isFullScreen: false
     }
 
-    this.add = this.add.bind(this)
-    this.delete = this.delete.bind(this)
-    this.load = this.load.bind(this)
-    this.toggleMenu = this.toggleMenu.bind(this)
-    this.toggleFullScreen = this.toggleFullScreen.bind(this)
-    this.toggleLightDark = this.toggleLightDark.bind(this)
+    let binds = ['add', 'delete', 'load', 'toggleMenu', 'toggleFullScreen', 'toggleLightDark'].forEach((name) => {
+      this[name] = this[name].bind(this)
+    })
   }
 
   componentDidMount () {
