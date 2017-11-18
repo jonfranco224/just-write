@@ -1001,12 +1001,9 @@ var Main = function (_React$Component) {
       isFullScreen: false
     };
 
-    _this.add = _this.add.bind(_this);
-    _this.delete = _this.delete.bind(_this);
-    _this.load = _this.load.bind(_this);
-    _this.toggleMenu = _this.toggleMenu.bind(_this);
-    _this.toggleFullScreen = _this.toggleFullScreen.bind(_this);
-    _this.toggleLightDark = _this.toggleLightDark.bind(_this);
+    var binds = ['add', 'delete', 'load', 'toggleMenu', 'toggleFullScreen', 'toggleLightDark'].forEach(function (name) {
+      _this[name] = _this[name].bind(_this);
+    });
     return _this;
   }
 
@@ -1031,10 +1028,6 @@ var Main = function (_React$Component) {
       window.addEventListener('beforeunload', function () {
         _this2.saveToLocalStorage();
       });
-      /*setInterval(() => { 
-        this.saveToLocalStorage() 
-        console.log('saved')
-      }, 500)*/
     }
   }, {
     key: 'add',

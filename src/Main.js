@@ -170,7 +170,7 @@ class Main extends React.Component {
     const textPrepped = [title, ' '].concat(splitText)
     doc.setFontSize(14)
     doc.text(textPrepped, 20, 20)
-    doc.save('test.pdf')
+    doc.save(title + '.pdf')
   }
 
   render () {
