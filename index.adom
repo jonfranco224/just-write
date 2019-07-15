@@ -203,6 +203,12 @@ function init () {
 }
 
 init ()
+
+window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-30199022-1');
 <--
 
 
@@ -214,6 +220,7 @@ html lang='en' on:load(main) [
     title | JustWrite |
     meta name='description' content='Distraction free writing';
     style | {styles} |
+    script async src="https://www.googletagmanager.com/gtag/js?id=UA-30199022-1" []
     script defer src="https://use.fontawesome.com/releases/v5.6.1/js/all.js" integrity="sha384-R5JkiUweZpJjELPWqttAYmYM1P3SNEJRM6ecTQF05pFFtxmCO+Y1CiUhvuDzgSVZ" crossorigin="anonymous" []
   ]
   body data-mode={mode}  [
