@@ -2,7 +2,7 @@ const adom = require('./index')
 const fs = require('fs')
 const http = require('http')
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 8000
 
 function render (file, data) {
   return adom(fs.readFileSync(file).toString(), data)
