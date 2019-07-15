@@ -225,15 +225,19 @@ html lang='en' on:load(main) [
   ]
   body data-mode={mode}  [
     div id='outer-boundary' [
-      main style="max-width: 900px; margin: 0 auto; justify-content: space-around;" [
-        div.flex style='padding: 10px 0px 20px 0px; align-items: center;' [
-          div.flex style="align-items: center; justify-content: space-between; margin-left: -10px; " [
-            button.clickable style='padding: 5px 10px;' on:click(toggleSidebar) [ i.fas.fa-bars style="pointer-events: none;" [] ]
-            button.clickable style='padding: 5px 10px;' on:click(toggleMode) [ i.fas.fa-lightbulb style="pointer-events: none;" [] ]
-            button.clickable style='padding: 5px 10px;' on:click(toggleFullScreen) [ i.fas.fa-arrows-alt style="pointer-events: none; transform: rotate(45deg);" [] ]
+      main style="max-width: 900px; margin: 0 auto;" [
+        div.flex style='padding: 10px 0px 20px 0px; align-items: center; justify-content: space-between;' [
+          div.flex style='align-items: center' [
+            div.flex style="align-items: center; justify-content: space-between; margin-left: -10px; " [
+              button.clickable style='padding: 5px 10px;' on:click(toggleSidebar) [ i.fas.fa-bars style="pointer-events: none;" [] ]
+              button.clickable style='padding: 5px 10px;' on:click(toggleMode) [ i.fas.fa-lightbulb style="pointer-events: none;" [] ]
+              button.clickable style='padding: 5px 10px;' on:click(toggleFullScreen) [ i.fas.fa-arrows-alt style="pointer-events: none; transform: rotate(45deg);" [] ]
+            ]
+            p style='margin: 0; font-style: italic; border-left: 1px solid #333; padding: 0px 10px; margin: 0px 5px;' | JustWrite. A minimal writing tool. |
           ]
-          p style='margin: 0; font-style: italic; border-left: 1px solid #333; padding: 0px 10px; margin: 0px 5px;' | JustWrite. A minimal writing tool. |
+          a style='color: #333; font-size: 12px;' href='https://github.com/jonfranco224/JustWrite' | Github: @jonfranco |
         ]
+        
         div.flex [
           div.w-full data-sidebar-active={sidebar} style='max-width: 150px; overflow: hidden; margin-right: 20px;' [
             div style='margin: 5px 0px;' [
