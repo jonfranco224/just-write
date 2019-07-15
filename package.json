@@ -4,7 +4,10 @@
   "description": "A minimal writing tool.",
   "main": "index.js",
   "scripts": {
-    "dev": "node server.js"
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "10.10.0"
   },
   "author": "Jonathan Franco",
   "license": "ISC"
