@@ -1,0 +1,253 @@
+$styles = """
+  
+  html { height: 100%; }
+  body {
+    transition: all 300ms ease; font-family: Helvetica;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #FFCC00;
+  }
+
+  * { box-sizing: border-box }
+
+  p { line-height: 1.4; }
+
+  #outer-boundary {
+    padding-top: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .mobilescroll {
+     -webkit-overflow-scrolling: touch;
+  }
+
+  h1, p { outline: none; }
+  button { background: none; font-weight: bold; outline: none; border: none; font-size: 16px; opacity: .8; color: black; }
+  button:hover { opacity: 1; }
+
+  @media only screen and (max-width: 800px) {
+    #outer-boundary {
+      padding-top: 10px;
+    }
+
+    button {
+      font-size: 20px;
+    }
+  }
+
+  .flex { display: flex; }
+  .w-full { width: 100%; }
+  .clickable { cursor: pointer; }
+
+  [data-sidebar-active="0"] { display: none; }
+  [data-sidebar-active="1"] { display: initial; }
+  [data-active="0"] { opacity: .8; }
+  [data-active="0"]:hover { opacity: 1; }
+  [data-active="1"] { font-weight: bold; }
+  [data-mode='dark'] { color: white; background: #333;}
+  [data-mode='dark'] button { color: white;}
+  [data-mode='light'] { background: white; color: #333; }
+
+"""
+
+$initName = 'My First Project'
+$initTitle = 'New Draft'
+$initText = 'It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way--in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only.'
+
+$drafts = []
+$drafts[0].name = ''
+$drafts[0].title = ''
+$drafts[0].text = ''
+
+$active = 0
+$activeTitle = ''
+$activeText = ''
+
+$mode = 'light'
+$fullScreen = false
+$sidebar = 1
+
+module main -->
+
+const title = document.querySelector('#title')
+const text = document.querySelector('#text')
+
+title.focus()
+
+window.addEventListener('unload', () => {
+  $.drafts[$.active].text = text.innerHTML
+  $.drafts[$.active].title = title.innerHTML
+
+  localStorage.setItem('drafts', JSON.stringify($.drafts))
+})
+
+function keyMapping (e) {
+  if (e.key === 'Tab' || e.keyCode === 9) {
+    e.preventDefault()
+    document.execCommand('insertHTML', false, '&nbsp;&nbsp;&nbsp;&nbsp;')
+  }
+}
+
+function toggleSidebar () {
+  $.sidebar = $.sidebar === 1 ? 0 : 1
+
+  updateView()
+}
+
+function toggleFullScreen () {
+  !$.isFullScreen ? enableFullScreen() : exitFullscreen()
+}
+
+function enableFullScreen () {
+  $.isFullScreen = true
+
+  let docElm = document.documentElement
+  if (docElm.requestFullscreen) {
+    docElm.requestFullscreen()
+  } else if (docElm.msRequestFullscreen) {
+    docElm = document.body //overwrite the element (for IE)
+    docElm.msRequestFullscreen()
+  } else if (docElm.mozRequestFullScreen) {
+    docElm.mozRequestFullScreen()
+  } else if (docElm.webkitRequestFullScreen) {
+    docElm.webkitRequestFullScreen()
+  }
+}
+
+function exitFullscreen () {
+  $.isFullScreen = false
+
+  if (document.exitFullscreen) {
+    document.exitFullscreen()
+  } else if (document.mozCancelFullScreen) {
+    document.mozCancelFullScreen()
+  } else if (document.webkitExitFullscreen) {
+    document.webkitExitFullscreen()
+  }
+}
+
+function addDraft () {
+  $.drafts.push({
+    name: $.initName,
+    title: $.initTitle,
+    text: $.initText
+  })
+
+  $.active = $.drafts.length - 1
+
+  updateView()
+}
+
+function deleteDraft (e) {
+  if (!confirm('Are you sure you want to delete?')) return
+
+  const i = parseInt(e.target.dataset.index)
+
+  $.drafts.splice(i, 1)
+  $.active = i === $.drafts.length ? $.drafts.length - 1 : i
+
+  updateView()
+}
+
+function setActive (e) {
+  $.active = parseInt(e.target.dataset.index)
+
+  updateView()
+}
+
+function updateTitle (e) {
+  const target = e.target.closest('[data-i]')
+  const i = target.dataset.i
+  $.drafts[i].title = target.innerHTML
+
+  updateView()
+}
+
+function updateText (e) {
+  const target = e.target.closest('[data-i]')
+  const i = target.dataset.i
+  $.drafts[i].text = target.innerHTML
+}
+
+function toggleMode () {
+  $.mode = $.mode === 'light' ? 'dark' : 'light'
+
+  updateView()
+}
+
+function updateView () {
+  $.drafts.forEach((item, i) => {
+    item.index = i
+    item.active = i === $.active ? 1 : 0
+  }) // workaround until matt fixes index in data
+  $.activeText =  $.drafts[$.active].text
+  $.activeTitle = $.drafts[$.active].title
+  $update()
+}
+
+function init () {
+  const savedDrafts = window.localStorage.getItem('drafts')
+  
+  if (savedDrafts) {
+    $.drafts = JSON.parse(savedDrafts)
+  } else {
+    $.drafts[0].name = $.initName
+    $.drafts[0].title = $.initTitle
+    $.drafts[0].text = $.initText
+  }
+
+  updateView()
+}
+
+init ()
+<--
+
+
+doctype html5
+html lang='en' on:load(main) [
+  head [
+    meta charset='utf-8';
+    meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no';
+    title | JustWrite |
+    meta name='description' content='Distraction free writing';
+    style | {styles} |
+    script defer src="https://use.fontawesome.com/releases/v5.6.1/js/all.js" integrity="sha384-R5JkiUweZpJjELPWqttAYmYM1P3SNEJRM6ecTQF05pFFtxmCO+Y1CiUhvuDzgSVZ" crossorigin="anonymous" []
+  ]
+  body data-mode={mode}  [
+    div id='outer-boundary' [
+      main style="max-width: 900px; margin: 0 auto; justify-content: space-around;" [
+        div.flex style='padding: 10px 0px 20px 0px; align-items: center;' [
+          div.flex style="align-items: center; justify-content: space-between; margin-left: -10px; " [
+            button.clickable style='padding: 5px 10px;' on:click(toggleSidebar) [ i.fas.fa-bars style="pointer-events: none;" [] ]
+            button.clickable style='padding: 5px 10px;' on:click(toggleMode) [ i.fas.fa-lightbulb style="pointer-events: none;" [] ]
+            button.clickable style='padding: 5px 10px;' on:click(toggleFullScreen) [ i.fas.fa-arrows-alt style="pointer-events: none; transform: rotate(45deg);" [] ]
+          ]
+          p style='margin: 0; font-style: italic; border-left: 1px solid #333; padding: 0px 10px; margin: 0px 5px;' | JustWrite. A minimal writing tool. |
+        ]
+        div.flex [
+          div.w-full data-sidebar-active={sidebar} style='max-width: 150px; overflow: hidden; margin-right: 20px;' [
+            div style='margin: 5px 0px;' [
+              div.clickable style='padding: 5px 0px; white-space: nowrap;' on:click(setActive) each (draft in drafts) data-index={draft.index} data-active={draft.active} [ 
+                span.clickable if (drafts.length gt 1) style="color: #e74c3c; font-size: 12px; padding: 0px 5px;" data-index={draft.index} on:click(deleteDraft) | X |
+                span style='font-size: 16px; pointer-events: none; padding: 0px 5px; white-space: nowrap;' | {draft.title} |
+              ]
+            ]
+            div.flex [
+              span.clickable style="color: #27ae60; font-size: 10px; padding: 5px; margin-top: 5px;" on:click(addDraft) [
+                i.fas.fa-plus style="pointer-events: none;" []
+                span style='font-size: 14px; padding-left: 8px; font-weight: bold; pointer-events: none;' [ | Add Draft | ]
+              ]
+            ]
+          ]
+          div.w-full style='padding-top: 5px; padding-right: 10px;' [
+            h1 id="title" style='margin: 0;' on:focusout(updateTitle) data-i={active} contenteditable='true' innerHTML={activeTitle} []
+            p.mobilescroll id="text" on:focusout(updateText) on:keydown(keyMapping) data-i={active} contenteditable='true' innerHTML={activeText}  []
+          ]
+        ]
+      ]
+    ]
+  ]
+]
