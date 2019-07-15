@@ -1,6 +1,4 @@
-# Foobar
-
-Foobar is a Python library for dealing with word pluralization.
+# JustWrite
 
 JustWrite is a highly minimal notes/writing tool featuring only dark/light mode and full screen as the primary features.
 
