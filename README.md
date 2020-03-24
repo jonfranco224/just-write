@@ -1,6 +1,6 @@
 # JustWrite
 
-[JustWrite](https://just-write-app.herokuapp.com/) is a highly minimal notes/writing tool featuring only dark/light mode and full screen as the primary features.
+[JustWrite](https://jonfranco224.github.io/JustWrite/) is a highly minimal notes/writing tool featuring only dark/light mode and full screen as the primary features.
 
 To run:
 
