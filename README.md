@@ -5,7 +5,7 @@
 To run:
 
 ```
-npm run start
+./run.sh
 ```
 
 ## Contributing
