@@ -5,6 +5,7 @@
 To run:
 
 ```
+npm install -g adom-js
 ./run.sh
 ```
 
