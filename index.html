@@ -1,0 +1,348 @@
+<html><head><style>* {
+  box-sizing: border-box;
+}
+html {
+  font-weight: 400;
+  letter-spacing: -.05px;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont,
+  “Segoe UI”, “Roboto”, “Oxygen”,
+  “Ubuntu”, “Cantarell”, “Fira Sans”,
+  “Droid Sans”, “Helvetica Neue”, sans-serif;
+}
+.dark, .dark button {
+  background: rgba(50, 50, 50, 1);
+  color: white;
+  transition: background 300ms ease, color 300ms ease;
+}
+.light, .light button {
+  background: white;
+  color: rgba(0, 0, 0, 1);
+  transition: background 300ms ease, color 300ms ease;
+}
+svg {
+  width: 15px;
+  height: 15px;
+}
+button, i, svg {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin: 0;
+  font-size: 14px;
+  background: rgba(0, 0, 0, 0);
+}
+p {
+  line-height: 1.4;
+}
+.active-list {
+  background: rgba(100, 100, 100, .85) !important;
+  color: white !important;
+}
+.fl-column { display: flex; flex-direction: column;}
+.fl { display: flex; }
+.fl-wrap { flex-wrap: wrap; }
+.fl-justify-between { justify-content: space-between; }
+.fl-align-center { align-items: center; }
+.fl-1 { flex: 1; }
+.w-full { width: 100%; }
+.h-full { height: 100%; }
+.h-35 { height: 35px; }
+.w-35 { width: 35px; }
+.w-30 { width: 30px; }
+.h-30 { min-height: 30px; max-height: 30px; }
+.h-25 { height: 25px; }
+.p-h-10 { padding-left: 10px; padding-right: 10px; }
+.p-v-10 { padding-top: 10px; padding-bottom: 10px; }
+.p-v-5 { padding-top: 5px; padding-bottom: 5px; }
+.p-5 { padding: 5px; }
+.p-10 { padding: 10px; }
+.p-0 { padding: 0px; }
+.m-5 { margin: 5px; }
+.m-0 { margin: 0px; }
+.txt-center { text-align: center; }
+.txt-right { text-align: right; }
+.txt-left { text-align: left; }
+.bold { font-weight: bold;}
+.bord-dark-b { border-bottom: 1px solid rgb(33, 33, 33); }
+.bord-dark-t { border-top: 1px solid rgb(33, 33, 33); }
+.bord-dark-l { border-left: 1px solid rgb(33, 33, 33); }
+.bord-dark-r { border-right: 1px solid rgb(33, 33, 33); }
+[contenteditable=true] {
+outline: none;
+}</style></head><body><script>window.onload = function () {
+  var $$adom_state = {"styles":"* {\n  box-sizing: border-box;\n}\nhtml {\n  font-weight: 400;\n  letter-spacing: -.05px;\n  -moz-osx-font-smoothing: grayscale;\n  -webkit-font-smoothing: antialiased;\n  font-smoothing: antialiased;\n  -webkit-tap-highlight-color: rgba(0,0,0,0);\n}\nbody {\n  margin: 0;\n  font-family: -apple-system, BlinkMacSystemFont,\n  “Segoe UI”, “Roboto”, “Oxygen”,\n  “Ubuntu”, “Cantarell”, “Fira Sans”,\n  “Droid Sans”, “Helvetica Neue”, sans-serif;\n}\n.dark, .dark button {\n  background: rgba(50, 50, 50, 1);\n  color: white;\n  transition: background 300ms ease, color 300ms ease;\n}\n.light, .light button {\n  background: white;\n  color: rgba(0, 0, 0, 1);\n  transition: background 300ms ease, color 300ms ease;\n}\nsvg {\n  width: 15px;\n  height: 15px;\n}\nbutton, i, svg {\n  border: none;\n  outline: none;\n  cursor: pointer;\n  margin: 0;\n  font-size: 14px;\n  background: rgba(0, 0, 0, 0);\n}\np {\n  line-height: 1.4;\n}\n.active-list {\n  background: rgba(100, 100, 100, .85) !important;\n  color: white !important;\n}\n.fl-column { display: flex; flex-direction: column;}\n.fl { display: flex; }\n.fl-wrap { flex-wrap: wrap; }\n.fl-justify-between { justify-content: space-between; }\n.fl-align-center { align-items: center; }\n.fl-1 { flex: 1; }\n.w-full { width: 100%; }\n.h-full { height: 100%; }\n.h-35 { height: 35px; }\n.w-35 { width: 35px; }\n.w-30 { width: 30px; }\n.h-30 { min-height: 30px; max-height: 30px; }\n.h-25 { height: 25px; }\n.p-h-10 { padding-left: 10px; padding-right: 10px; }\n.p-v-10 { padding-top: 10px; padding-bottom: 10px; }\n.p-v-5 { padding-top: 5px; padding-bottom: 5px; }\n.p-5 { padding: 5px; }\n.p-10 { padding: 10px; }\n.p-0 { padding: 0px; }\n.m-5 { margin: 5px; }\n.m-0 { margin: 0px; }\n.txt-center { text-align: center; }\n.txt-right { text-align: right; }\n.txt-left { text-align: left; }\n.bold { font-weight: bold;}\n.bord-dark-b { border-bottom: 1px solid rgb(33, 33, 33); }\n.bord-dark-t { border-top: 1px solid rgb(33, 33, 33); }\n.bord-dark-l { border-left: 1px solid rgb(33, 33, 33); }\n.bord-dark-r { border-right: 1px solid rgb(33, 33, 33); }\n[contenteditable=true] {\noutline: none;\n}","isFullScreen":false,"styleMode":"light","active":0,"data":[{"title":"New Draft 1","text":"It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way--in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only."}]};
+  
+  var $$processed = [];
+  var $$firstSync = true;
+  var $$props = [];
+
+  function $$push_props (props) {
+    $$props.push(props);
+  }
+
+  function $$pop_props () {
+    $$props.pop();
+  }
+
+  function $$addEventListeners (node, events) {
+      var keys = Object.keys(events);
+      if (!node.__eventRefs) node.__eventRefs = {};
+      keys.forEach(function (event) {
+          if (node.__eventRefs[event]) {
+            node.removeEventListener(event, node.__eventRefs[event]);
+          }
+          node.addEventListener(event, events[event]);
+          node.__eventRefs[event] = events[event];
+      })
+  }
+
+  function $$if (cond, condIf, condElse) {
+      if (cond) condIf();
+      else if (condElse) condElse();
+  }
+
+  function $$each (list, fn) {
+      if (Array.isArray(list)) {
+          for (var i = 0; i < list.length; i++) {
+              fn(list[i], i);
+          }
+      } else if (typeof list === 'object') {
+          var keys = Object.keys(list);
+          for (var i = 0; i < keys.length; i++) {
+              fn(keys[i], list[keys[i]]);
+          }
+      } else {
+          throw new Error(list + ' is not iterable');
+      }
+  }
+
+  function $$clean (node) {
+      var num = $$processed[$$processed.length - 1];
+      while (node.childNodes[num]) {
+          var out = node.childNodes[num];
+          if (out.__adomState && out.__adomState.unmount) {
+            out.__adomState.unmount();
+          }
+          node.removeChild(out);
+      }
+  }
+
+  function $$create (type, props, events, state) {
+      var node;
+      if (type === 'text') node = document.createTextNode(props(state));
+      else {
+          node = document.createElement(type);
+          $$attr(node, props(state));
+      }
+      if (state) {
+        node.__adomState = state;
+        if (state.mount) {
+          state.mount();
+        }
+      }
+      if (events) $$addEventListeners(node, events);
+      return node;
+  }
+
+  function $$attr (node, props) {
+      Object.keys(props).forEach(function (p) {
+          var a = props[p];
+          if (p === 'events') return;
+          var v = (a && a.constructor === Array) ? a.join(' ') : a;
+          if (p in node) {
+              node[p] = v;
+          } else if (v === false || v == null) {
+              node.removeAttribute(at);
+          } else {
+              node.setAttribute(p, v);
+          }
+      });
+  }
+
+  function $$class (C, obj) {
+    if (!C) return obj;
+    var i = new C();
+    Object.keys(obj).forEach(function (k) {
+      i[k] = obj[k];
+    });
+    return i;
+  }
+
+  function $$e (par, type, props, events, state, children) {
+      var index = $$processed[$$processed.length - 1]++;
+      var node = par.childNodes[index];
+      if (!node) {
+          node = $$create(type, props, events, state);
+          par.appendChild(node);
+      } else if (type === 'text' && node.nodeType === Node.TEXT_NODE) {
+          node.nodeValue = props(node.__adomState || state);
+      } else if (node.tagName && (type === node.tagName.toLowerCase())) {
+          if (state && !node.__adomState) node.__adomState = state;
+          $$attr(node, props(node.__adomState));
+          if (events) $$addEventListeners(node, events);
+      } else {
+          var out = node;
+          node = $$create(type, props, events, state);
+          if (out.__adomState && out.__adomState.unmount) {
+            out.__adomState.unmount();
+          }
+          par.replaceChild(node, out);
+      }
+      if (children) {
+          $$processed.push(0);
+          children(node, node.__adomState || null);
+          $$clean(node);
+          $$processed.pop();
+      }
+  }
+  
+  (function (styles, isFullScreen, styleMode, active, data) {
+  
+  function $sync() {
+      var par = window["adom-root-1574"];
+      var $ = undefined;
+      //console.time('sync');
+      $$processed.push(0);
+      $$e(par, "div", function ($) { return (function () { return {"class": "w-full h-full"}; }).call($, ); }, null, null, function (par) { (function () {
+        $$e(par, "div", function ($) { return (function () { return {"class": "fl h-full " + styleMode + ""}; }).call($, ); }, null, null, function (par) { (function () {
+            $$e(par, "div", function ($) { return (function () { return {"class": "fl-column bord-dark-r", "style": "width: 225px;"}; }).call($, ); }, null, null, function (par) { (function () {
+                $$e(par, "div", function ($) { return (function () { return {"class": "bord-dark-b", "style": "padding: 10px 0px;"}; }).call($, ); }, null, null, function (par) { (function () {
+                    $$e(par, "div", function ($) { return (function () { return {"class": "fl fl-justify-between fl-align-center "}; }).call($, ); }, null, null, function (par) { (function () {
+                        $$e(par, "p", function ($) { return (function () { return {"class": "m-0 p-h-10 bold", "style": "font-style: italic;"}; }).call($, ); }, null, null, function (par) { (function () {
+                            $$e(par, "text", function () { return "JustWrite"; })
+                        })(); });
+                        $$e(par, "div", function ($) { return (function () { return {}; }).call($, ); }, null, null, function (par) { (function () {
+                            $$e(par, "button", function ($) { return (function () { return {"class": "w-30 h-30"}; }).call($, ); }, {"click": function ($e) { (function ($) { (function () { toggleStyleMode(); {}; $sync() }).call($) })($e.target.__adomState || $); }}, null, function (par) { (function () {
+                                $$e(par, "svg", function ($) { return (function () { return {"class": "svg-inline--fa fa-lightbulb fa-w-11", "style": "pointer-events: none;", "aria-hidden": "true", "data-prefix": "fas", "data-icon": "lightbulb", "role": "img", "xmlns": "http://www.w3.org/2000/svg", "viewBox": "0 0 352 512", "data-fa-i2svg": ""}; }).call($, ); }, null, null, function (par) { (function () {
+                                    $$e(par, "path", function ($) { return (function () { return {"fill": "currentColor", "d": "M96.06 454.35c.01 6.29 1.87 12.45 5.36 17.69l17.09 25.69a31.99 31.99 0 0 0 26.64 14.28h61.71a31.99 31.99 0 0 0 26.64-14.28l17.09-25.69a31.989 31.989 0 0 0 5.36-17.69l.04-38.35H96.01l.05 38.35zM0 176c0 44.37 16.45 84.85 43.56 115.78 16.52 18.85 42.36 58.23 52.21 91.45.04.26.07.52.11.78h160.24c.04-.26.07-.51.11-.78 9.85-33.22 35.69-72.6 52.21-91.45C335.55 260.85 352 220.37 352 176 352 78.61 272.91-.3 175.45 0 73.44.31 0 82.97 0 176zm176-80c-44.11 0-80 35.89-80 80 0 8.84-7.16 16-16 16s-16-7.16-16-16c0-61.76 50.24-112 112-112 8.84 0 16 7.16 16 16s-7.16 16-16 16z"}; }).call($, ); }, null, null);
+                                })(); });
+                            })(); });
+                            $$e(par, "button", function ($) { return (function () { return {"class": "w-30 h-30"}; }).call($, ); }, {"click": function ($e) { (function ($) { (function () { toggleFullScreen(); {}; $sync() }).call($) })($e.target.__adomState || $); }}, null, function (par) { (function () {
+                                $$e(par, "svg", function ($) { return (function () { return {"class": "svg-inline--fa fa-arrows-alt fa-w-16", "style": "pointer-events: none;", "aria-hidden": "true", "data-prefix": "fas", "data-icon": "arrows-alt", "role": "img", "xmlns": "http://www.w3.org/2000/svg", "viewBox": "0 0 512 512", "data-fa-i2svg": ""}; }).call($, ); }, null, null, function (par) { (function () {
+                                    $$e(par, "path", function ($) { return (function () { return {"fill": "currentColor", "d": "M352.201 425.775l-79.196 79.196c-9.373 9.373-24.568 9.373-33.941 0l-79.196-79.196c-15.119-15.119-4.411-40.971 16.971-40.97h51.162L228 284H127.196v51.162c0 21.382-25.851 32.09-40.971 16.971L7.029 272.937c-9.373-9.373-9.373-24.569 0-33.941L86.225 159.8c15.119-15.119 40.971-4.411 40.971 16.971V228H228V127.196h-51.23c-21.382 0-32.09-25.851-16.971-40.971l79.196-79.196c9.373-9.373 24.568-9.373 33.941 0l79.196 79.196c15.119 15.119 4.411 40.971-16.971 40.971h-51.162V228h100.804v-51.162c0-21.382 25.851-32.09 40.97-16.971l79.196 79.196c9.373 9.373 9.373 24.569 0 33.941L425.773 352.2c-15.119 15.119-40.971 4.411-40.97-16.971V284H284v100.804h51.23c21.382 0 32.09 25.851 16.971 40.971z"}; }).call($, ); }, null, null);
+                                })(); });
+                            })(); });
+                        })(); });
+                    })(); });
+                })(); });
+                $$e(par, "div", function ($) { return (function () { return {"class": "fl fl-justify-between bord-dark-b"}; }).call($, ); }, null, null, function (par) { (function () {
+                    $$e(par, "button", function ($) { return (function () { return {"class": "p-v-5 bold bord-dark-r w-30 h-30"}; }).call($, ); }, {"click": function ($e) { (function ($) { (function () { addItem(); {}; $sync() }).call($) })($e.target.__adomState || $); }}, null, function (par) { (function () {
+                        $$e(par, "svg", function ($) { return (function () { return {"class": "svg-inline--fa fa-plus fa-w-14", "style": "pointer-events: none; font-size: 12px;", "aria-hidden": "true", "data-prefix": "fas", "data-icon": "plus", "role": "img", "xmlns": "http://www.w3.org/2000/svg", "viewBox": "0 0 448 512", "data-fa-i2svg": ""}; }).call($, ); }, null, null, function (par) { (function () {
+                            $$e(par, "path", function ($) { return (function () { return {"fill": "currentColor", "d": "M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"}; }).call($, ); }, null, null);
+                        })(); });
+                    })(); });
+                    $$e(par, "button", function ($) { return (function () { return {"class": "p-v-5 bold bord-dark-l w-30 h-30"}; }).call($, ); }, {"click": function ($e) { (function ($) { (function () { deleteItem(); {}; $sync() }).call($) })($e.target.__adomState || $); }}, null, function (par) { (function () {
+                        $$e(par, "svg", function ($) { return (function () { return {"class": "svg-inline--fa fa-trash fa-w-14", "style": "pointer-events: none; font-size: 12px;", "aria-hidden": "true", "data-prefix": "fas", "data-icon": "trash", "role": "img", "xmlns": "http://www.w3.org/2000/svg", "viewBox": "0 0 448 512", "data-fa-i2svg": ""}; }).call($, ); }, null, null, function (par) { (function () {
+                            $$e(par, "path", function ($) { return (function () { return {"fill": "currentColor", "d": "M0 84V56c0-13.3 10.7-24 24-24h112l9.4-18.7c4-8.2 12.3-13.3 21.4-13.3h114.3c9.1 0 17.4 5.1 21.5 13.3L312 32h112c13.3 0 24 10.7 24 24v28c0 6.6-5.4 12-12 12H12C5.4 96 0 90.6 0 84zm415.2 56.7L394.8 467c-1.6 25.3-22.6 45-47.9 45H101.1c-25.3 0-46.3-19.7-47.9-45L32.8 140.7c-.4-6.9 5.1-12.7 12-12.7h358.5c6.8 0 12.3 5.8 11.9 12.7z"}; }).call($, ); }, null, null);
+                        })(); });
+                    })(); });
+                })(); });
+$$each(data, function (i, idx) {
+                    $$e(par, "button", function ($) { return (function () { return {"class": "txt-left bord-dark-b h-30 list-hover " + ((active == idx) ? "active-list" : "") + "", "style": "font-size: 12px;"}; }).call($, ); }, {"click": function ($e) { (function ($) { (function () { active = idx; {}; $sync() }).call($) })($e.target.__adomState || $); }}, null, function (par) { (function () {
+                        $$e(par, "text", function () { return "" + i["title"] + ""; })
+                    })(); });
+});
+            })(); });
+            $$e(par, "div", function ($) { return (function () { return {"class": "fl-1", "style": "padding: 20px 50px;"}; }).call($, ); }, null, null, function (par) { (function () {
+                $$e(par, "h1", function ($) { return (function () { return {"contenteditable": "true", "class": "m-0", "style": "padding: 10px 0px 30px;", "innerHTML": data[active]["title"]}; }).call($, ); }, {"keyup": function ($e) { (function ($) { (function () { updateTitle($e); {};  }).call($) })($e.target.__adomState || $); },"focusout": function ($e) { (function ($) { (function () { updateTitle($e); {}; $sync() }).call($) })($e.target.__adomState || $); }}, null);
+                $$e(par, "p", function ($) { return (function () { return {"contenteditable": "true", "class": "m-0 p-v-5", "innerHTML": data[active]["text"]}; }).call($, ); }, {"keyup": function ($e) { (function ($) { (function () { updateText($e); {};  }).call($) })($e.target.__adomState || $); },"focusout": function ($e) { (function ($) { (function () { updateText($e); {}; $sync() }).call($) })($e.target.__adomState || $); }}, null);
+            })(); });
+        })(); });
+    })(); });
+      $$clean(par);
+      $$processed.pop();
+      //console.timeEnd('sync');
+      $$firstSync = false;
+   }
+      
+
+function enableFullScreen () {
+  isFullScreen = true
+
+  let docElm = document.documentElement
+  
+  if (docElm.requestFullscreen) {
+    docElm.requestFullscreen()
+  } else if (docElm.msRequestFullscreen) {
+    docElm = document.body //overwrite the element (for IE)
+    docElm.msRequestFullscreen()
+  } else if (docElm.mozRequestFullScreen) {
+    docElm.mozRequestFullScreen()
+  } else if (docElm.webkitRequestFullScreen) {
+    docElm.webkitRequestFullScreen()
+  }
+  }
+
+  function exitFullScreen () {
+    isFullScreen = false
+
+    if (document.exitFullscreen) {
+      document.exitFullscreen()
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen()
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen()
+    }
+  }
+
+  function toggleStyleMode () {
+    styleMode = styleMode === 'light' ? 'dark' : 'light'
+  }
+
+  function toggleFullScreen () {
+    isFullScreen ? exitFullScreen() : enableFullScreen()
+  }
+
+  function updateTitle (e) {
+    data[active].title = e.target.innerHTML
+  }
+
+  function updateText (e) {
+    data[active].text = e.target.innerHTML
+  }
+
+  function addItem () {
+    data[data.length] = {
+      title: `New Draft ${data.length + 1}`,
+      text: 'It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way--in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only.' 
+    }
+  }
+
+  function deleteItem () {
+    if (data.length === 1) return
+
+    const confirmed = confirm('Are you sure you want to delete this?')
+
+    if (confirmed) {
+      data.splice(active, 1)
+      if (active > 0) active -= 1
+    }
+  }
+
+  function init () {
+    const prevActive = window.localStorage.getItem('active')
+    const prevData = window.localStorage.getItem('data')
+
+    if (prevActive && prevData) {
+      active = JSON.parse(prevActive)
+      data = JSON.parse(prevData)
+      $sync()
+    }
+  }
+
+  init ()
+
+  window.addEventListener('unload', (e) => {
+    window.localStorage.setItem('data', JSON.stringify(data))
+    window.localStorage.setItem('active', JSON.stringify(active))
+  })
+  $sync();
+})($$adom_state.styles, $$adom_state.isFullScreen, $$adom_state.styleMode, $$adom_state.active, $$adom_state.data)
+}</script><style></style><div id="adom-root-1574"><div class="w-full h-full"><div class="fl h-full light"><div class="fl-column bord-dark-r" style="width: 225px;"><div class="bord-dark-b" style="padding: 10px 0px;"><div class="fl fl-justify-between fl-align-center "><p class="m-0 p-h-10 bold" style="font-style: italic;">JustWrite</p><div><button class="w-30 h-30"><svg class="svg-inline--fa fa-lightbulb fa-w-11" style="pointer-events: none;" aria-hidden="true" data-prefix="fas" data-icon="lightbulb" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M96.06 454.35c.01 6.29 1.87 12.45 5.36 17.69l17.09 25.69a31.99 31.99 0 0 0 26.64 14.28h61.71a31.99 31.99 0 0 0 26.64-14.28l17.09-25.69a31.989 31.989 0 0 0 5.36-17.69l.04-38.35H96.01l.05 38.35zM0 176c0 44.37 16.45 84.85 43.56 115.78 16.52 18.85 42.36 58.23 52.21 91.45.04.26.07.52.11.78h160.24c.04-.26.07-.51.11-.78 9.85-33.22 35.69-72.6 52.21-91.45C335.55 260.85 352 220.37 352 176 352 78.61 272.91-.3 175.45 0 73.44.31 0 82.97 0 176zm176-80c-44.11 0-80 35.89-80 80 0 8.84-7.16 16-16 16s-16-7.16-16-16c0-61.76 50.24-112 112-112 8.84 0 16 7.16 16 16s-7.16 16-16 16z"></path></svg></button><button class="w-30 h-30"><svg class="svg-inline--fa fa-arrows-alt fa-w-16" style="pointer-events: none;" aria-hidden="true" data-prefix="fas" data-icon="arrows-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M352.201 425.775l-79.196 79.196c-9.373 9.373-24.568 9.373-33.941 0l-79.196-79.196c-15.119-15.119-4.411-40.971 16.971-40.97h51.162L228 284H127.196v51.162c0 21.382-25.851 32.09-40.971 16.971L7.029 272.937c-9.373-9.373-9.373-24.569 0-33.941L86.225 159.8c15.119-15.119 40.971-4.411 40.971 16.971V228H228V127.196h-51.23c-21.382 0-32.09-25.851-16.971-40.971l79.196-79.196c9.373-9.373 24.568-9.373 33.941 0l79.196 79.196c15.119 15.119 4.411 40.971-16.971 40.971h-51.162V228h100.804v-51.162c0-21.382 25.851-32.09 40.97-16.971l79.196 79.196c9.373 9.373 9.373 24.569 0 33.941L425.773 352.2c-15.119 15.119-40.971 4.411-40.97-16.971V284H284v100.804h51.23c21.382 0 32.09 25.851 16.971 40.971z"></path></svg></button></div></div></div><div class="fl fl-justify-between bord-dark-b"><button class="p-v-5 bold bord-dark-r w-30 h-30"><svg class="svg-inline--fa fa-plus fa-w-14" style="pointer-events: none; font-size: 12px;" aria-hidden="true" data-prefix="fas" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></button><button class="p-v-5 bold bord-dark-l w-30 h-30"><svg class="svg-inline--fa fa-trash fa-w-14" style="pointer-events: none; font-size: 12px;" aria-hidden="true" data-prefix="fas" data-icon="trash" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M0 84V56c0-13.3 10.7-24 24-24h112l9.4-18.7c4-8.2 12.3-13.3 21.4-13.3h114.3c9.1 0 17.4 5.1 21.5 13.3L312 32h112c13.3 0 24 10.7 24 24v28c0 6.6-5.4 12-12 12H12C5.4 96 0 90.6 0 84zm415.2 56.7L394.8 467c-1.6 25.3-22.6 45-47.9 45H101.1c-25.3 0-46.3-19.7-47.9-45L32.8 140.7c-.4-6.9 5.1-12.7 12-12.7h358.5c6.8 0 12.3 5.8 11.9 12.7z"></path></svg></button></div><button class="txt-left bord-dark-b h-30 list-hover active-list" style="font-size: 12px;">New Draft 1</button></div><div class="fl-1" style="padding: 20px 50px;"><h1 contenteditable="true" class="m-0" style="padding: 10px 0px 30px;">New Draft 1</h1><p contenteditable="true" class="m-0 p-v-5">It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way--in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only.</p></div></div></div></div></body></html>
