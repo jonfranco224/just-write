@@ -1,3 +1,5 @@
+// language: javascript
+
 const styles = file 'style.css'
 
 var isFullScreen = false
